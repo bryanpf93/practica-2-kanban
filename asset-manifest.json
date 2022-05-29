@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/practica-2-kanban/static/css/main.8afbb94b.css",
-    "main.js": "/practica-2-kanban/static/js/main.1c7d044f.js",
+    "main.js": "/practica-2-kanban/static/js/main.3a681065.js",
     "static/js/787.d15b7ff6.chunk.js": "/practica-2-kanban/static/js/787.d15b7ff6.chunk.js",
     "index.html": "/practica-2-kanban/index.html",
     "main.8afbb94b.css.map": "/practica-2-kanban/static/css/main.8afbb94b.css.map",
-    "main.1c7d044f.js.map": "/practica-2-kanban/static/js/main.1c7d044f.js.map",
+    "main.3a681065.js.map": "/practica-2-kanban/static/js/main.3a681065.js.map",
     "787.d15b7ff6.chunk.js.map": "/practica-2-kanban/static/js/787.d15b7ff6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8afbb94b.css",
-    "static/js/main.1c7d044f.js"
+    "static/js/main.3a681065.js"
   ]
 }
