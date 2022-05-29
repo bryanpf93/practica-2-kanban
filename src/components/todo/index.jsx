@@ -12,7 +12,7 @@ import './style.css';
 
 function Todo({title, status, clear, tasks}) {
     const [showForm, setShowForm] = useState(false)
-    const { onCreateTask, onClearTask } = useContext(TasksContext)
+    const { onCreateTask, onClearTask, onUpdateStatus } = useContext(TasksContext)
 
     // muestra el form cuando es TRUE
     const handleCreateTask = () => {
@@ -35,10 +35,19 @@ function Todo({title, status, clear, tasks}) {
         onClearTask(status)
     }
 
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    }
+
+    const handleDrop = (e) => {
+        const task = JSON.parse(e.dataTransfer.getData("task"));
+        onUpdateStatus(task, status)
+    }
+
     return (
 
         <>
-            <div className="container-todo">
+            <div className="container-todo"  onDragOver={handleDragOver} onDrop={handleDrop}>
                 <div className="header">
                     <div className='circle-todo'>
                         <div className="circle">{tasks.length}</div>
@@ -51,6 +60,7 @@ function Todo({title, status, clear, tasks}) {
                 <div className='container-tasks'>
                     {tasks && tasks.map( task => <Task key={task.id} task={task} ></Task>)}
                 </div>
+
                 {showForm && <Form onAdd={handleAddTask} onCancel={handleCancelTask}></Form>}
             </div>
         </>
