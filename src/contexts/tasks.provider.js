@@ -36,11 +36,18 @@ export function TasksProvider({ children }) {
         setTasks((prevTasks) => prevTasks.filter(task => task.id !== id)) // filtra los que no cumplen el id
     }
 
+    const onUpdateStatus = (task, status) => {
+        const position = tasks.findIndex(t => t.id === task.id);
+        tasks[position] = {...task, status};
+        setTasks([...tasks]);
+    }
+
     return <TasksContext.Provider value={{
         tasks,
         setTasks,
         onCreateTask,
         onClearTask,
         onDeleteTask,
+        onUpdateStatus
     }}>{children}</TasksContext.Provider>
 }

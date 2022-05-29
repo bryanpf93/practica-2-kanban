@@ -19,8 +19,8 @@ function Board({ onUpdate }) {
         <div className='board-wrapper App-container'>
             <Todo
                 title="TODO"
-                status=""
-                tasks={tasks.filter(task => task.status === '')}></Todo>
+                status="todo"
+                tasks={tasks.filter(task => task.status === 'todo')}></Todo>
             <Todo
                 title="IN PROGRESS"
                 status="pending"

@@ -2,8 +2,10 @@ import { useContext } from 'react'
 import { TasksContext } from '../../../contexts/tasks.context'
 import './style.css'
 
+const statusValues = ['todo', 'pending', 'done']
+
 function Task({ task }) {
-    const { onDeleteTask } = useContext(TasksContext)
+    const { onDeleteTask, onUpdateStatus } = useContext(TasksContext)
 
     // comunica que se ha dado click al boton
     const handleRemove = () => {
@@ -22,6 +24,11 @@ function Task({ task }) {
             </div>
             <p className='task-info'>#{task.id} created on {task.date}</p>
 
+            <div className='actions'>
+                {statusValues.map(status => status !== task.status && (
+                    <button key={status} onClick={() => onUpdateStatus(task, status)}>{status}</button>
+                ))}
+            </div>
         </div>
 
     )
