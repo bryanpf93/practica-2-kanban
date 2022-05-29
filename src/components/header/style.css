@@ -8,26 +8,18 @@
 }
 
 .wrap-header img{
-    height:70px;
-    
-    }
+    height:70px;    
+}
 
 .logo{
-    width: 8%;
-    /* background-color: red; */
     display: flex;
     justify-content: center;
-
-
-    }
+}
 
 .version{
     width: 92%;
-    /* background-color: brown; */
     color: white;
     font-weight: bold;
     text-align: center;
     font-size: 1.1rem;
-    /* padding-right: 100px; */
-
-    }
+}

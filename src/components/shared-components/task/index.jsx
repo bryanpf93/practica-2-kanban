@@ -1,5 +1,6 @@
+import './style.css'
 
-function Task({task, onRemove}) {
+function Task({ task, onRemove }) {
 
     // comunica que se ha dado click al boton
     const handleRemove = () => {
@@ -8,10 +9,16 @@ function Task({task, onRemove}) {
 
     return (
 
-        <div>
-            <p>{task.title}</p>
-            <p>#{task.id} created on {task.date}</p>
-            <button onClick={handleRemove}>X</button>
+        <div className='wrap-task' >
+            <div className='title-button'>
+                <div className='state-title'>
+                    <div className='task-state'></div>
+                    <span className='task-title'>{task.title}</span>
+                </div>
+                <button onClick={handleRemove}>X</button>
+            </div>
+            <p className='task-info'>#{task.id} created on {task.date}</p>
+
         </div>
 
     )

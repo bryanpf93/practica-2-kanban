@@ -16,14 +16,19 @@ function App() {
   }
 
   return (
-    <>
-    
-    <Header></Header>
-    <Nav lastDateUpdate={lastUpdate}></Nav>
-    <Board onUpdate={handleBoardUpdate}></Board>
+    <div className="App">
+      <div className="App-header">
+        <Header className></Header>
+      </div>
 
-     
-    </>
+      <div className="App-nav">
+        <Nav lastDateUpdate={lastUpdate}></Nav>
+      </div>
+
+      <div className="App-body">
+        <Board onUpdate={handleBoardUpdate}></Board>
+      </div>
+    </div>
   );
 }
 

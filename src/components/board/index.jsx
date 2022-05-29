@@ -45,7 +45,7 @@ function Board({ onUpdate }) {
     }
 
     return (
-        <div className='board-wrapper'>
+        <div className='board-wrapper App-container'>
             <Todo
                 title="TODO"
                 tasks={tasks.filter(task => task.status === '')}

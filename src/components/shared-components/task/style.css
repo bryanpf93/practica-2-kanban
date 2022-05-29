@@ -1,0 +1,33 @@
+.wrap-task{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.title-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.state-title{
+    display: flex;
+    flex-direction: row;
+}
+
+.task-state{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: greenyellow;
+    margin-right: 10px;
+}
+
+.task-title{
+    color: blue;
+}
+
+.task-info{
+    color: gray;
+}
