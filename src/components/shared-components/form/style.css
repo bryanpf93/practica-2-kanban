@@ -23,7 +23,6 @@
 
 .button-add{
     background-color: #2ea44f;
-    /* opacity: 0.7; */
     color: white;
 }
 
@@ -34,6 +33,11 @@
 .button-cancel{
     background-color: #fafbfc;
     font-weight: bold;
+    border: 1px solid rgba(27,31,35,0.15);
+}
+
+.button-cancel:focus{
+    background-color: #cb2431;
 }
 
 .text-area{

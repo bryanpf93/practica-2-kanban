@@ -19,7 +19,7 @@ function Task({ task }) {
         <div className='wrap-task' draggable onDragStart={handleDragStart}>
             <div className='title-button'>
                 <div className='state-title'>
-                    <div className='task-state'></div>
+                    <div className={task.status==='done'?'task-state-two':'task-state'}></div>
                     <span className='task-title'>{task.title}</span>
                 </div>
                 <button onClick={handleRemove}>X</button>

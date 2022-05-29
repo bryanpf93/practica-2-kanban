@@ -8,7 +8,9 @@ export function TasksProvider({ children }) {
         const stored = localStorage.getItem(STORAGE_KEY);
         return stored ? JSON.parse(stored) : []
     });
-
+    const [taskOriginal, setTaskOriginal] = useState(tasks)
+    const [filter, setFilter] = useState('')
+    
     useEffect(() => {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
     }, [tasks])
@@ -42,12 +44,17 @@ export function TasksProvider({ children }) {
         setTasks([...tasks]);
     }
 
+    const filterTasks = e => {
+        setFilter(e.target.value.toLowerCase())
+    }
+
     return <TasksContext.Provider value={{
-        tasks,
+        tasks: filter ? tasks.filter(c => c.title.toLowerCase().includes(filter)) : taskOriginal,
         setTasks,
         onCreateTask,
         onClearTask,
         onDeleteTask,
-        onUpdateStatus
+        onUpdateStatus,
+        filterTasks,
     }}>{children}</TasksContext.Provider>
 }
