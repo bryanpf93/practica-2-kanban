@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { TasksContext } from '../../contexts/tasks.context';
 import Form from '../shared-components/form';
 import Task from '../shared-components/task';
 import './style.css';
@@ -9,8 +10,9 @@ import './style.css';
  * tasks : tareas   
  */
 
-function Todo({title, clear, tasks, onCreateTask, onRemoveTask, onClearDone}) {
+function Todo({title, status, clear, tasks}) {
     const [showForm, setShowForm] = useState(false)
+    const { onCreateTask, onClearTask } = useContext(TasksContext)
 
     // muestra el form cuando es TRUE
     const handleCreateTask = () => {
@@ -19,7 +21,7 @@ function Todo({title, clear, tasks, onCreateTask, onRemoveTask, onClearDone}) {
 
     // añade una tarea a la columna
     const handleAddTask = (e) => {
-        onCreateTask(e)  // manda por prop al padre y el padre se encarga de añadir
+        onCreateTask(e, status)  // manda por prop al padre y el padre se encarga de añadir
         setShowForm(false)  // oculta el form cuando le damos al boton add
     }
 
@@ -30,12 +32,7 @@ function Todo({title, clear, tasks, onCreateTask, onRemoveTask, onClearDone}) {
 
     // manda por prop al padre y el padre se encarga de ejecutarlo (limpia la columna)
     const handleClearAll = () => {
-        onClearDone()
-    }
-
-    // comunica al padre que elimine el task, porque el array esta en el board
-    const handleRemoveTask = (e) => {
-        onRemoveTask(e)
+        onClearTask(status)
     }
 
     return (
@@ -52,9 +49,7 @@ function Todo({title, clear, tasks, onCreateTask, onRemoveTask, onClearDone}) {
                 </div>
 
                 <div className='container-tasks'>
-                    {tasks && tasks.map( task => <Task key={task.id} task={task} onRemove={() => handleRemoveTask(task.id)} ></Task>
-                    
-                    )}
+                    {tasks && tasks.map( task => <Task key={task.id} task={task} ></Task>)}
                 </div>
                 {showForm && <Form onAdd={handleAddTask} onCancel={handleCancelTask}></Form>}
             </div>

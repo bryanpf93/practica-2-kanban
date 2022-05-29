@@ -1,10 +1,13 @@
+import { useContext } from 'react'
+import { TasksContext } from '../../../contexts/tasks.context'
 import './style.css'
 
-function Task({ task, onRemove }) {
+function Task({ task }) {
+    const { onDeleteTask } = useContext(TasksContext)
 
     // comunica que se ha dado click al boton
     const handleRemove = () => {
-        onRemove() // pasamos al padre al accion
+        onDeleteTask(task.id) // pasamos al padre al accion
     }
 
     return (

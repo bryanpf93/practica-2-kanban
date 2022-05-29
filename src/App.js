@@ -4,6 +4,7 @@ import Header from './components/header';
 import Nav from './components/nav';
 import Board from './components/board';
 import { useState } from 'react';
+import { TasksProvider } from './contexts/tasks.provider';
 
 
 
@@ -21,13 +22,16 @@ function App() {
         <Header className></Header>
       </div>
 
-      <div className="App-nav">
-        <Nav lastDateUpdate={lastUpdate}></Nav>
-      </div>
+      <TasksProvider>
+        <div className="App-nav">
+          <Nav lastDateUpdate={lastUpdate}></Nav>
+        </div>
 
-      <div className="App-body">
-        <Board onUpdate={handleBoardUpdate}></Board>
-      </div>
+        <div className="App-body">
+          <Board onUpdate={handleBoardUpdate}></Board>
+        </div>
+      </TasksProvider>
+
     </div>
   );
 }
