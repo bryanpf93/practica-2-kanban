@@ -40,6 +40,7 @@ export function TasksProvider({ children }) {
     const onUpdateStatus = (task, status) => {
         const position = tasks.findIndex(t => t.id === task.id);
         tasks[position] = {...task, status};
+        console.log(task)
         setTasks([...tasks]);
     }
 

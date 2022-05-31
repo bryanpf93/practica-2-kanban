@@ -5,11 +5,25 @@
     margin: 20px auto;
 }
 
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
 .input {
     height: 30px;
     width: 300px;
     border-radius: 5px;
     padding: 10px;
+    border: none;
+}
+
+.input:focus{
+    outline: none;
 }
 
 .bold {

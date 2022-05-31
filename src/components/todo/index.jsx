@@ -42,6 +42,7 @@ function Todo({title, status, clear, tasks}) {
     const handleDrop = (e) => {
         const task = JSON.parse(e.dataTransfer.getData("task"));
         onUpdateStatus(task, status)
+        
     }
 
     return (
@@ -53,8 +54,10 @@ function Todo({title, status, clear, tasks}) {
                         <div className="circle">{tasks.length}</div>
                         <p className="todo">{title}</p>
                     </div>
+                    <div className='plus-clear'>
                     <button onClick={handleCreateTask}  className="plus">+</button>
-                    {clear && <button onClick={handleClearAll}>Clear all</button>}
+                    {clear && <button onClick={handleClearAll} className='clear-all'>Clear all</button>}
+                    </div>
                 </div>
 
                 <div className='container-tasks'>

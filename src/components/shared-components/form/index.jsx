@@ -30,7 +30,7 @@ function Form ({onCancel, onAdd}){
             <form className='wrap-form'>
                 <textarea className='text-area' name="" id="" cols="25" rows="3" onChange={handleText}></textarea>
                 <div className='buttons'>
-                    <button className='buttons-color button-add' disabled={!text} onClick={handleAdd}>Add</button>
+                    <button className='buttons-color button-add'  onClick={handleAdd}>Add</button>
                     <button className='buttons-color button-cancel' onClick={handleCancel}>Cancel</button>
                 </div>
               
